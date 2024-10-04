@@ -153,10 +153,10 @@ div.vertical-line {
     position: absolute;
 }
 
-.bestSeller-container {
-    /* background-color: white;
-    height: 500px; */
-}
+/* .bestSeller-container {
+    background-color: white;
+    height: 500px;
+} */
 
 .title-bestSeller {
     float: left;
@@ -166,10 +166,26 @@ div.vertical-line {
 .img-bestSeller {
     float: right;
     width: 80%;
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    grid-template-columns: auto auto auto;
-    row-gap: 90px;
+}
+
+.img-bestSeller > div {
+    flex-basis: calc(33.333% - 20px); /* Cho 3 cột, trừ đi khoảng cách giữa các cột */
+    margin-bottom: 20px; /* Khoảng cách giữa các hàng */
+}
+
+@media (max-width: 768px) {
+    .img-bestSeller > div {
+        flex-basis: calc(50% - 10px); /* Cho 2 cột trên màn hình nhỏ hơn */
+    }
+}
+
+@media (max-width: 480px) {
+    .img-bestSeller > div {
+        flex-basis: 100%; /* Cho 1 cột trên màn hình rất nhỏ */
+    }
 }
 
 .banner-bestSeller {
@@ -351,4 +367,154 @@ div.vertical-line {
 
 .table-footer {
     margin-left: 586px;
+}
+
+/* Default styles for larger screens (laptop, desktop) */
+body {
+    margin: 0 auto;
+    background-color: lightgrey;
+}
+
+.wrapper {
+    background-color: white;
+    padding: 30px 70px;
+}
+
+/* Responsive for tablets (max-width: 1024px) */
+@media only screen and (max-width: 900px) {
+    .wrapper {
+        padding: 20px 50px;
+    }
+    
+    .column1, .column2, .column3 {
+        width: 100%;
+        float: none;
+        margin: 10px 0;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    .title-banner>h1 {
+        font-size: 60px;
+    }
+
+    .img-banner>img {
+        margin-left: 15%;
+        margin-top: 8%;
+        width: 80%;
+    }
+
+    .input-with-icon {
+        width: 300px;
+        height: 50px;
+    }
+
+    .banner-bestSeller {
+        width: 50%;
+    }
+}
+
+/* Responsive for mobile phones (max-width: 768px) */
+@media only screen and (max-width: 768px) {
+    .wrapper {
+        padding: 15px 20px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav > li > a {
+        margin-left: 0;
+        margin-right: 15px;
+    }
+
+    .top-icon > li {
+        margin-right: 15px;
+    }
+
+    .banner-title {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .header {
+        flex-direction: column;
+    }
+
+    .title, .img-banner {
+        width: 100%;
+        float: none;
+    }
+
+    .title-banner > h1 {
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .img-banner > img {
+        margin-left: 0;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .input-with-icon {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .banner-bestSeller {
+        height: auto;
+        padding: 20px;
+    }
+
+    .title-bestSeller, .img-bestSeller {
+        width: 100%;
+        float: none;
+    }
+
+    .img-bestSeller > div {
+        flex-basis: calc(50% - 10px);
+    }
+
+    .banner-aboutUs, .banner-categories, .banner-whatSay {
+        height: auto;
+        padding: 20px;
+    }
+
+    .categories-img {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .whatSay1 {
+        width: 100%;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .table-footer {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .img-bestSeller > div {
+        flex-basis: 100%;
+    }
+
+    .title-banner > h1 {
+        font-size: 30px;
+        line-height: 40px;
+    }
 }
